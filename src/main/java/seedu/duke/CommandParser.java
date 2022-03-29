@@ -2,6 +2,7 @@ package seedu.duke;
 
 import seedu.duke.command.Command;
 import seedu.duke.command.eventcommands.AddEventCommand;
+import seedu.duke.command.eventcommands.ViewEventsCommand;
 import seedu.duke.command.itemcommand.AddItemCommand;
 import seedu.duke.command.itemcommand.ViewItemWithZeroPaxCommand;
 import seedu.duke.command.itemcommand.SearchItemCommand;
@@ -45,6 +46,7 @@ public class CommandParser {
     private static final String DELETE_PROFILE = "delete housekeeper ";
     private static final String UPDATE_AGE_BY_ONE = "is a new year";
     private static final String ADD_EVENT = "event ";
+    private static final String VIEW_EVENTS = "view events";
 
 
     /**
@@ -132,6 +134,9 @@ public class CommandParser {
         } else if (commandString.startsWith(ADD_EVENT)) {
             commandStringWithoutCommand = commandString.replace(ADD_EVENT, "");
             userCommand = new AddEventCommand(commandStringWithoutCommand);
+        } else if (commandString.startsWith(VIEW_EVENTS)) {
+            commandStringWithoutCommand = commandString.replace(VIEW_EVENTS, "");
+            userCommand = new ViewEventsCommand(commandStringWithoutCommand);
         } else {
             throw new InvalidCommandException();
         }

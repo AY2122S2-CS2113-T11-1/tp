@@ -1,7 +1,6 @@
 package seedu.duke;
 
 import seedu.duke.storage.EventListFileManager;
-import seedu.duke.storage.RoomFileManager;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -22,13 +21,13 @@ public class EventList {
         return this.eventList;
     }
 
-    public void add(String description, String atString) {
+    public void add(String description, String atString) throws InvalidDateException {
         try {
             LocalDate at = LocalDate.parse(atString);
             Event event = new Event(description, at);
             eventList.add(event);
         } catch (Exception e) {
-            System.out.println("Please add date in yyyy-mm-dd format.");
+            throw new InvalidDateException();
         }
     }
 

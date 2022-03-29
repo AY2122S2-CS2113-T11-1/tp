@@ -1,14 +1,7 @@
 package seedu.duke.command.eventcommands;
 
-import seedu.duke.HotelLiteManagerException;
-import seedu.duke.InvalidAvailabilityException;
+import seedu.duke.*;
 import seedu.duke.command.Command;
-
-import seedu.duke.ListContainer;
-import seedu.duke.Ui;
-import seedu.duke.EventList;
-import seedu.duke.InvalidRoomNumberException;
-import seedu.duke.InvalidHousekeeperProfile;
 
 import java.io.IOException;
 import java.util.logging.Level;
@@ -17,21 +10,23 @@ import java.util.logging.Logger;
 public class AddEventCommand extends Command {
     private String description;
     private String at;
-    private static final String EVENT_INDICATE = "!!";
+    private static final String EVENT_INDICATE = "@@";
     private static final int ONLY_ONE_FIELD_ENTERED = 1;
     private static Logger logger = Logger.getLogger("Add Event");
 
     public AddEventCommand(String commandStringWithoutCommand) throws HotelLiteManagerException {
         if (commandStringWithoutCommand.isEmpty()) {
-            throw new InvalidAvailabilityException();
+            logger.log(Level.INFO, "empty string");
+            throw new InvalidEventException();
         }
         String[] input = extractInput(commandStringWithoutCommand);
         String description = input[0].trim();
         if (input.length == ONLY_ONE_FIELD_ENTERED) {
-            throw new InvalidAvailabilityException();
+            logger.log(Level.INFO, "only one field entered");
+            throw new InvalidEventException();
         }
-        String id = input[1].trim();
-        if (id.isEmpty()) {
+        String at = input[1].trim();
+        if (at.isEmpty()) {
             throw new InvalidAvailabilityException();
         }
         setDescription(description);
@@ -79,7 +74,7 @@ public class AddEventCommand extends Command {
      */
     @Override
     public void execute(ListContainer listContainer, Ui ui)
-            throws InvalidRoomNumberException, InvalidHousekeeperProfile, IOException {
+            throws InvalidRoomNumberException, InvalidHousekeeperProfile, IOException, InvalidDateException {
 
         final EventList eventList = listContainer.getEventList();
         String description = getDescription();
@@ -87,7 +82,8 @@ public class AddEventCommand extends Command {
         String at = getAt();
         assert !at.isEmpty() : "at should not be empty";
 
-        eventList.add(description, at);
+        eventList.add(description, "2019-09-09");
+        logger.log(Level.INFO, "about to add to file.");
         eventList.save();
         ui.printMessage("Added event: " + description + " at " + at + ".");
         logger.log(Level.INFO, "end of adding event.");
