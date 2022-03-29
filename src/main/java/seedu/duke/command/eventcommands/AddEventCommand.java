@@ -1,7 +1,16 @@
 package seedu.duke.command.eventcommands;
 
-import seedu.duke.*;
+import seedu.duke.HotelLiteManagerException;
+import seedu.duke.InvalidAvailabilityException;
 import seedu.duke.command.Command;
+
+import seedu.duke.ListContainer;
+import seedu.duke.Ui;
+import seedu.duke.EventList;
+import seedu.duke.InvalidRoomNumberException;
+import seedu.duke.InvalidHousekeeperProfile;
+import seedu.duke.InvalidEventException;
+import seedu.duke.InvalidDateException;
 
 import java.io.IOException;
 import java.util.logging.Level;
@@ -82,7 +91,7 @@ public class AddEventCommand extends Command {
         String at = getAt();
         assert !at.isEmpty() : "at should not be empty";
 
-        eventList.add("fsldf", "2019-09-09");
+        eventList.add(description, at);
         logger.log(Level.INFO, "about to add to file.");
         eventList.save();
         ui.printMessage("Added event: " + description + " at " + at + ".");

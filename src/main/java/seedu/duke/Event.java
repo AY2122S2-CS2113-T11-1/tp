@@ -20,7 +20,7 @@ public class Event {
     }
 
     public String toFileString() {
-        return getDescription() + " | " + getAt();
+        return getDescription() + " | " + at.toString();
     }
 
     public void setAt(String at) {
