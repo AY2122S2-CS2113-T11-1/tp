@@ -82,7 +82,7 @@ public class AddEventCommand extends Command {
         String at = getAt();
         assert !at.isEmpty() : "at should not be empty";
 
-        eventList.add(description, "2019-09-09");
+        eventList.add("fsldf", "2019-09-09");
         logger.log(Level.INFO, "about to add to file.");
         eventList.save();
         ui.printMessage("Added event: " + description + " at " + at + ".");
