@@ -134,7 +134,7 @@ public class CommandParser {
             userCommand = new AgeIncreaseCommand();
         } else if (userInputLowerCase.startsWith(SEARCH_ITEM_COMMAND)) {
             userInputLowerCaseWithoutCommand = userInputLowerCase.replace(SEARCH_ITEM_COMMAND, "");
-            userCommand = new SearchItemCommand(userInputLowerCaseWithoutCommand);\
+            userCommand = new SearchItemCommand(userInputLowerCaseWithoutCommand);
         } else if (userInputLowerCase.startsWith(ADD_EVENT)) {
             userInputLowerCaseWithoutCommand = userInputLowerCase.replace(ADD_EVENT, "");
             userCommand = new AddEventCommand(userInputLowerCaseWithoutCommand);
