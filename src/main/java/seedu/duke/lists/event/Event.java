@@ -1,4 +1,4 @@
-package seedu.duke;
+package seedu.duke.lists.event;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;

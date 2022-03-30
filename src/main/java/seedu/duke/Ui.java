@@ -2,10 +2,12 @@ package seedu.duke;
 
 import seedu.duke.lists.Item;
 import seedu.duke.lists.ItemList;
+import seedu.duke.lists.event.Event;
 import seedu.duke.exceptions.HotelLiteManagerException;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+
 
 /**
  * Represents the User Interface component of the program.
