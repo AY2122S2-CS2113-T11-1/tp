@@ -2,8 +2,6 @@
 
 ## Overview
 
-![](Logo/logo.jpg)
-
 I am one of the developers of Hotel Lite, a CLI application designed for hotel owners to manage their businesses efficiently.
 This application offers functionalities for keeping track of hotel inventory,
 managing housekeeper staff records, recording customer satisfaction ratings,
@@ -71,7 +69,7 @@ Map<Room, Housekeeper> map = new HashMap<>();
 ``
 
 The following steps exhibit how `AssignHousekeeperCommand`
-and `AssignmentMap` fit together in the structure and how the mechanism for adding an assinment behaves at each step.
+and `AssignmentMap` fit together in the structure and how the mechanism for adding an assignment behaves at each step.
 
 __Step 1.__ The user launches the application. In the `Duke` class, an empty instance of the `AssignmentMap` class,
 called `assignmentMap`, is created.
